@@ -60,7 +60,23 @@ export default function App() {
           <button
             type="button"
             className="cta cta-primary"
-            onClick={() => document.getElementById("registro")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+            
+            
+            onClick={() => {
+  const el = document.getElementById("registro");
+
+  if (!el) return;
+
+  const yOffset = -80; // ajuste esse valor
+  const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+  window.scrollTo({
+    top: y,
+    behavior: "smooth"
+  });
+}}
+
+
           >
             Faça seu registro →
           </button>
